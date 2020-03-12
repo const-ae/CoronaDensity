@@ -130,7 +130,7 @@ ggplot(merged_data2) +
   geom_sf(aes(geometry = geometry), fill = "#1c0026") +
   geom_sf(aes(geometry = points), color = "#f2e711", size = 0.05, alpha = 0.3) +
   geom_sf(aes(geometry = cpoints), color = "#d11313", size = 0.05) +
-  labs(title=paste0("<span style = 'color: #d11313;font-size: 35px'>Corona Cases</span>",
+  labs(title=paste0("<span style = 'color: #d11313;font-size: 35px'>Covid-19 Cases</span>",
                     "<span style = 'color: #000f26;'>n</span>vs<span style = 'color: #000f26;'>n</span>",
                     "<span style = 'color: #f2e711;font-size: 35px'>Population Density</span>"),
        subtitle = paste0("<span style = 'color: #d11313; font-size: 20px '>&#9679;</span> = ",
