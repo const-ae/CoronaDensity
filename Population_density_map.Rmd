@@ -1,0 +1,157 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+
+```{r}
+library(sf)
+library(tidyverse)
+library(tmap)
+```
+
+
+Load shape file
+```{r}
+shape_kreise <- st_read("data/vg1000_2019-01-01.gk3.shape.ebenen/vg1000_ebenen/VG1000_KRS.shp")
+```
+
+
+Load density on Kreis Ebene
+
+```{r}
+population_dens_raw <- read_lines("data/population_density_raw.tsv")
+filtered_lines <- population_dens_raw[str_detect(population_dens_raw, "^\\d{5}")]
+tf <- tempfile()
+write_lines(paste0(filtered_lines, collapse = "\n"), tf)
+pop_density <- read_tsv(tf, col_names = c("ID", "Type", "Name", "NUTS3", "Area", 
+                                          "Pop_total", "Pop_male", "Pop_female", "Pop_persqkm")) %>%
+  dplyr::select(- c(Pop_male, Pop_female, Pop_persqkm)) %>%
+  mutate(Area = str_remove_all(Area, "\\s") %>% readr::parse_double(locale = locale(decimal_mark = ","))) %>%
+  mutate(Pop_total = str_remove_all(Pop_total, "\\s") %>% readr::parse_integer()) %>%
+  separate(Name, into = c("Name", "Feature"), sep = ", ")
+```
+
+Traditional Population density Map
+
+```{r}
+shape_kreise %>%
+  mutate(ID = RS) %>%
+  full_join(pop_density, by = c("ID")) %>%
+  tm_shape() +
+    tm_polygons("Pop_total")
+```
+
+Draw random points within shape
+
+```{r}
+random_points_within_shape <- function(shape, n){
+  res <- st_multipoint(matrix(numeric(2 * n), nrow = n, ncol = 2))
+  bbox_shape <- st_bbox(shape)
+  for(i in seq_len(n)){
+    is_within <- FALSE
+    while(!is_within){
+      prop <- st_point(c(runif(n = 1, min = bbox_shape["xmin"], max = bbox_shape["xmax"]),
+                         runif(n = 1, min = bbox_shape["ymin"], max = bbox_shape["ymax"])))
+      is_within <- c(st_contains(shape, prop, sparse = FALSE))
+    }
+    res[i, ] <- prop
+  }
+  res <- st_sfc(res)
+  st_crs(res) <- st_crs(shape)
+  res
+}
+```
+
+Make cooler population density map
+
+```{r}
+merged_data <- shape_kreise %>%
+  mutate(ID = RS) %>%
+  full_join(pop_density, by = c("ID")) %>%
+  # head(n = 3) %>%
+  mutate(dots = round(Pop_total / 5e4)) %>%
+  rowwise() %>%
+  mutate(points = random_points_within_shape(geometry, dots)) 
+  
+tm_shape(merged_data$geometry) +
+    tm_polygons(col = "white", border.alpha = 0.1) +
+  tm_shape(merged_data$points) +
+    tm_dots(size = 0.01) 
+```
+
+
+
+```{r}
+
+merged_data2 <- kreise_with_corona %>%
+  mutate(area = c(st_area(geometry))) %>%
+  mutate(ID = RS) %>%
+  group_by(ID) %>%
+  filter(min_rank(-area) == 1) %>%
+  full_join(pop_density, by = c("ID")) %>%
+  mutate(dots = round(Pop_total / 5e3)) %>%
+  mutate(cdots = round(cases / 10)) %>%
+  rowwise() %>%
+  mutate(points = random_points_within_shape(geometry, dots),
+         cpoints = random_points_within_shape(geometry, cdots)) 
+  
+tm_shape(merged_data2$geometry) +
+    tm_polygons(col = "white", border.alpha = 0.1) +
+  tm_shape(merged_data2$points) +
+    tm_dots(size = 0.05) +
+  tm_shape(st_set_crs(merged_data2$cpoints, st_crs(merged_data2$geometry))) +
+    tm_dots(size = 0.05, col = "red") 
+
+```
+
+
+
+```{r}
+tmap_mode("plot")
+tmap_options(bg.color = "white", legend.text.color = "white")
+
+tm_shape(merged_data2$geometry) +
+    tm_polygons(col = "#261140", border.col = "white", border.alpha = 0.1) +
+  tm_shape(st_set_crs(merged_data2$points, st_crs(merged_data2$geometry))) +
+    tm_dots(size = 0.03, col = "#f2e711", alpha = 0.3) +
+  tm_shape(st_set_crs(merged_data2$cpoints, st_crs(merged_data2$geometry))) +
+    tm_dots(size = 0.03, col = "red") +
+  tm_layout(title = "Verteilung der Corona-Fölle in Deutschland")
+```
+
+
+
+
+```{r}
+
+#261140
+ggplot(merged_data2) +
+  geom_sf(aes(geometry = geometry), fill = "#1c0026") +
+  geom_sf(aes(geometry = points), color = "#f2e711", size = 0.05, alpha = 0.3) +
+  geom_sf(aes(geometry = cpoints), color = "#d11313", size = 0.05) +
+  labs(title=paste0("<span style = 'color: #d11313;font-size: 35px'>Corona Cases</span>",
+                    "<span style = 'color: #000f26;'>n</span>vs<span style = 'color: #000f26;'>n</span>",
+                    "<span style = 'color: #f2e711;font-size: 35px'>Population Density</span>"),
+       subtitle = paste0("<span style = 'color: #d11313; font-size: 20px '>&#9679;</span> = ",
+                           "<span style = 'color: #000f26;'>nn</span>10 Infected<br>",
+                         "<span style = 'color: #f2e711; font-size: 20px '>&#9679;</span> = 5000 Healthy"),
+       caption = paste0("by @const-ae 12.03.2020<br><br>", 
+                        "<i>Sources:</i><br>",
+                        "Corona cases: github.com/iceweasel1/COVID-19-Germany <br>",
+                        "District boundaries: © GeoBasis-DE / BKG (2020) <br>",
+                        "District population: Statistisches Bundesamt")) +
+  cowplot::theme_map() +
+  theme(plot.title = ggtext::element_markdown(color = "white", margin = unit(c(0, 0, 0.3, 0), "in"),
+                                              hjust = 0),
+        plot.subtitle = ggtext::element_markdown(color = "white", lineheight = 1.5),
+        plot.caption = ggtext::element_markdown(color = "darkgrey", hjust = 0),
+        plot.background = element_rect(fill = "#000f26"),
+        plot.margin = unit(c(0.3, 0.2, 0.1, 0.2), "in"))
+
+cowplot::save_plot("output/5000_healthy_10_infected.png", ggplot2::last_plot(),
+                   base_height = 12.75, base_width = 8)
+```
+
+
+

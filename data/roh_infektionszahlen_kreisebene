@@ -1,0 +1,440 @@
+# Daten kopiert aus https://www.zeit.de/wissen/gesundheit/2020-03/coronavirus-ausbreitung-zeitverlauf-landkreise-staedte-karte
+# Github repo https://github.com/iceweasel1/COVID-19-Germany
+Heinsberg	365	
+144,5144,5
+Freising	51	
+29,029,0
+Main-Tauber-Kreis	25	
+18,918,9
+Erlangen	13	
+11,811,8
+Städteregion Aachen	61	
+11,011,0
+München (Landkreis)	36	
+10,510,5
+Starnberg	13	
+9,79,7
+Coesfeld	21	
+9,69,6
+Ebersberg	13	
+9,49,4
+Würzburg (Landkreis)	15	
+9,39,3
+Cham	11	
+8,78,7
+Emmendingen	14	
+8,68,6
+Heilbronn (Landkreis)	28	
+8,38,3
+Zollernalbkreis	15	
+8,08,0
+Lindau (Bodensee)	6	
+7,47,4
+Augsburg (Landkreis)	17	
+6,96,9
+Oberallgäu	9	
+5,95,9
+Stade	11	
+5,55,5
+Hohenlohekreis	6	
+5,45,4
+Freiburg im Breisgau	12	
+5,35,3
+Miesbach	5	
+5,15,1
+Ulm	6	
+4,84,8
+Esslingen	23	
+4,44,4
+Neustadt a.d. Aisch-Bad Windsheim	4	
+4,04,0
+Köln	43	
+4,04,0
+Wilhelmshaven	3	
+3,93,9
+Rheinisch-Bergischer Kreis	11	
+3,93,9
+Calw	6	
+3,93,9
+Bayreuth (Landkreis)	4	
+3,93,9
+Kaiserslautern (Landkreis)	4	
+3,83,8
+Bad Dürkheim	5	
+3,83,8
+Bremen	21	
+3,73,7
+Saale-Orla-Kreis	3	
+3,63,6
+Remscheid	4	
+3,63,6
+Ostallgäu	5	
+3,63,6
+Koblenz	4	
+3,53,5
+Lippe	11	
+3,23,2
+Bonn	10	
+3,13,1
+Mönchengladbach	8	
+3,13,1
+Stuttgart	19	
+3,03,0
+Cottbus	3	
+3,03,0
+Mannheim	9	
+3,03,0
+Rhein-Neckar-Kreis	16	
+2,92,9
+Amberg-Sulzbach	3	
+2,92,9
+Münster	9	
+2,92,9
+Minden-Lübbecke	9	
+2,92,9
+Elbe-Elster	3	
+2,92,9
+Ortenaukreis	12	
+2,82,8
+München	40	
+2,72,7
+Düren	7	
+2,72,7
+Spree-Neiße	3	
+2,62,6
+Nürnberg	13	
+2,52,5
+Solingen	4	
+2,52,5
+Oldenburg (Oldb)	4	
+2,42,4
+Mayen-Koblenz	5	
+2,42,4
+Bodenseekreis	5	
+2,42,4
+Germersheim	3	
+2,32,3
+Oldenburg	3	
+2,32,3
+Sigmaringen	3	
+2,32,3
+Heidenheim	3	
+2,32,3
+Traunstein	4	
+2,32,3
+Donau-Ries	3	
+2,32,3
+Celle	4	
+2,22,2
+Weilheim-Schongau	3	
+2,22,2
+Tübingen	5	
+2,22,2
+Oberbergischer Kreis	6	
+2,22,2
+Ravensburg	6	
+2,12,1
+Regensburg (Landkreis)	4	
+2,12,1
+Ludwigsburg	11	
+2,02,0
+Karlsruhe (Landkreis)	9	
+2,02,0
+Friesland	2	
+2,02,0
+Unna	8	
+2,02,0
+Viersen	6	
+2,02,0
+Harburg	5	
+2,02,0
+Dachau	3	
+2,02,0
+Hamburg	35	
+1,91,9
+Breisgau-Hochschwarzwald	5	
+1,91,9
+Mecklenburgische Seenplatte	5	
+1,91,9
+Borken	7	
+1,91,9
+Heidelberg	3	
+1,91,9
+Rotenburg (Wümme)	3	
+1,81,8
+Rhein-Sieg-Kreis	11	
+1,81,8
+Baden-Baden	1	
+1,81,8
+Fürstenfeldbruck	4	
+1,81,8
+Osterholz	2	
+1,81,8
+Rastatt	4	
+1,81,8
+Hochtaunuskreis	4	
+1,71,7
+Landsberg am Lech	2	
+1,71,7
+Mettmann	8	
+1,71,7
+Berlin	58	
+1,61,6
+Pfaffenhofen a.d. Ilm	2	
+1,61,6
+Herford	4	
+1,61,6
+Passau (Landkreis)	3	
+1,61,6
+Roth	2	
+1,61,6
+Lahn-Dill-Kreis	4	
+1,61,6
+Göppingen	4	
+1,61,6
+Plön	2	
+1,61,6
+Alb-Donau-Kreis	3	
+1,61,6
+Herzogtum Lauenburg	3	
+1,51,5
+Biberach	3	
+1,51,5
+Gelsenkirchen	4	
+1,51,5
+Neumarkt i.d. OPf.	2	
+1,51,5
+Cuxhaven	3	
+1,51,5
+Ingolstadt	2	
+1,51,5
+Erlangen-Höchstadt	2	
+1,51,5
+Erding	2	
+1,51,5
+Verden	2	
+1,51,5
+Märkischer Kreis	6	
+1,51,5
+Hildesheim	4	
+1,41,4
+Warendorf	4	
+1,41,4
+Rems-Murr-Kreis	6	
+1,41,4
+Neckar-Odenwald-Kreis	2	
+1,41,4
+Rostock (Landkreis)	3	
+1,41,4
+Saarpfalz-Kreis	2	
+1,41,4
+Gütersloh	5	
+1,41,4
+Bautzen	4	
+1,31,3
+Delmenhorst	1	
+1,31,3
+Rhein-Erft-Kreis	6	
+1,31,3
+Ostalbkreis	4	
+1,31,3
+Havelland	2	
+1,31,3
+Dortmund	7	
+1,21,2
+Rosenheim (Landkreis)	3	
+1,21,2
+Neu-Ulm	2	
+1,21,2
+Börde	2	
+1,21,2
+Garmisch-Partenkirchen	1	
+1,11,1
+Steinfurt	5	
+1,11,1
+Gießen	3	
+1,11,1
+Bochum	4	
+1,11,1
+Neuwied	2	
+1,11,1
+Rheingau-Taunus-Kreis	2	
+1,11,1
+Euskirchen	2	
+1,11,1
+Dingolfing-Landau	1	
+1,11,1
+Böblingen	4	
+1,01,0
+Hof (Landkreis)	1	
+1,01,0
+Märkisch-Oderland	2	
+1,01,0
+Essen	6	
+1,01,0
+Eifelkreis Bitburg-Prüm	1	
+1,01,0
+Paderborn	3	
+1,01,0
+Pinneberg	3	
+1,01,0
+Recklinghausen	6	
+1,01,0
+Bad Kissingen	1	
+1,01,0
+Region Hannover	11	
+1,01,0
+Merzig-Wadern	1	
+1,01,0
+Rostock	2	
+1,01,0
+Vogelsbergkreis	1	
+0,90,9
+Lübeck	2	
+0,90,9
+Fulda	2	
+0,90,9
+Bernkastel-Wittlich	1	
+0,90,9
+Vorpommern-Rügen	2	
+0,90,9
+Bremerhaven	1	
+0,90,9
+Freudenstadt	1	
+0,90,9
+Fürth (Landkreis)	1	
+0,90,9
+Osnabrück (Landkreis)	3	
+0,90,9
+Bottrop	1	
+0,90,9
+Main-Taunus-Kreis	2	
+0,90,9
+Rottal-Inn	1	
+0,80,8
+Vorpommern-Greifswald	2	
+0,80,8
+Kelheim	1	
+0,80,8
+Ammerland	1	
+0,80,8
+Düsseldorf	5	
+0,80,8
+Marburg-Biedenkopf	2	
+0,80,8
+Heilbronn	1	
+0,80,8
+Offenbach am Main	1	
+0,80,8
+Main-Spessart	1	
+0,80,8
+Aichach-Friedberg	1	
+0,80,8
+Dithmarschen	1	
+0,80,8
+Bergstraße	2	
+0,80,8
+Neunkirchen	1	
+0,80,8
+Grafschaft Bentheim	1	
+0,70,7
+Rottweil	1	
+0,70,7
+Schwandorf	1	
+0,70,7
+Karlsruhe	2	
+0,70,7
+Landshut (Landkreis)	1	
+0,60,6
+Waldeck-Frankenberg	1	
+0,60,6
+Leverkusen	1	
+0,60,6
+Regionalverband Saarbrücken	2	
+0,60,6
+Teltow-Fläming	1	
+0,60,6
+Duisburg	3	
+0,60,6
+Bielefeld	2	
+0,60,6
+Leer	1	
+0,60,6
+Nürnberger Land	1	
+0,60,6
+Aschaffenburg (Landkreis)	1	
+0,60,6
+Oder-Spree	1	
+0,60,6
+Dresden	3	
+0,60,6
+Frankfurt am Main	4	
+0,50,5
+Saalekreis	1	
+0,50,5
+Aurich	1	
+0,50,5
+Hagen	1	
+0,50,5
+Schwäbisch Hall	1	
+0,50,5
+Enzkreis	1	
+0,50,5
+Saarlouis	1	
+0,50,5
+Salzlandkreis	1	
+0,50,5
+Ostholstein	1	
+0,50,5
+Mainz-Bingen	1	
+0,50,5
+Schwarzwald-Baar-Kreis	1	
+0,50,5
+Oberhavel	1	
+0,50,5
+Mainz	1	
+0,50,5
+Erfurt	1	
+0,50,5
+Rhein-Kreis Neuss	2	
+0,50,5
+Lörrach	1	
+0,40,4
+Kassel (Landkreis)	1	
+0,40,4
+Halle (Saale)	1	
+0,40,4
+Stormarn	1	
+0,40,4
+Sächsische Schweiz-Osterzgebirge	1	
+0,40,4
+Braunschweig	1	
+0,40,4
+Hochsauerlandkreis	1	
+0,40,4
+Segeberg	1	
+0,40,4
+Groß-Gerau	1	
+0,40,4
+Wiesbaden	1	
+0,40,4
+Konstanz	1	
+0,40,4
+Reutlingen	1	
+0,40,4
+Augsburg	1	
+0,40,4
+Leipzig	2	
+0,40,4
+Darmstadt-Dieburg	1	
+0,30,3
+Kleve	1	
+0,30,3
+Emsland	1	
+0,30,3
+Offenbach	1	
+0,30,3
+Main-Kinzig-Kreis	1	
+0,20,2
+Wesel	1	
+0,20,2

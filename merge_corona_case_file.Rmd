@@ -1,0 +1,58 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+
+
+```{r}
+library(sf)
+library(tidyverse)
+library(tmap)
+```
+
+
+Load shape file
+```{r}
+shape_kreise <- st_read("data/vg1000_2019-01-01.gk3.shape.ebenen/vg1000_ebenen/VG1000_KRS.shp")
+```
+
+
+```{r}
+corona_df <- read_csv("data/corona_in_germany.csv") %>%
+  drop_na()
+corona_df
+```
+
+
+Unfortunately, the District names are in English. I will thus join via the position argument:
+
+```{r}
+
+districts <- st_sfc(st_multipoint(cbind(corona_df$Longitude, corona_df$Latitude)))
+st_crs(districts) <- 4326   # Might the right lat/long crs
+# st_crs(districts) <- 4269 
+distr_centers <- st_cast(districts, "POINT")
+head(st_transform(distr_centers, 31467))
+overlap <- st_contains(shape_kreise, st_transform(distr_centers, 31467), sparse = FALSE)
+dim(overlap)
+distr_num <- apply(overlap, 2, which)
+
+corona_cases_clean_df <- corona_df %>%
+  mutate(district_num = distr_num) %>%
+  group_by(district_num) %>%
+  summarize(cases = n(),
+            Name_engl = first(District))
+```
+
+
+
+```{r}
+kreise_with_corona <- shape_kreise %>%
+  mutate(district_num = seq_len(n())) %>%
+  full_join(corona_cases_clean_df, by = "district_num") %>%
+  mutate(cases = ifelse(is.na(cases), 0, cases))
+```
+
+
+
