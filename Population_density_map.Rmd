@@ -155,3 +155,36 @@ cowplot::save_plot("output/5000_healthy_10_infected.png", ggplot2::last_plot(),
 
 
 
+
+
+
+```{r}
+ggplot(merged_data2) +
+  geom_sf(aes(geometry = geometry), fill = "#1c0026") +
+  geom_sf(aes(geometry = points), color = "#f2e711", size = 0.05, alpha = 0.3) +
+  geom_sf(aes(geometry = cpoints), color = "#1ad2db", size = 0.05) +
+  labs(title=paste0("<span style = 'color: #1ad2db;font-size: 35px'>Covid-19 Cases</span>",
+                    "<span style = 'color: #000f26;'>n</span>vs<span style = 'color: #000f26;'>n</span>",
+                    "<span style = 'color: #f2e711;font-size: 35px'>Population Density</span>"),
+       subtitle = paste0("<span style = 'color: #1ad2db; font-size: 20px '>&#9679;</span> = ",
+                           "<span style = 'color: #000f26;'>nn</span>10 Infected<br>",
+                         "<span style = 'color: #f2e711; font-size: 20px '>&#9679;</span> = 5000 Healthy"),
+       caption = paste0("by @const-ae 12.03.2020<br><br>", 
+                        "<i>Sources:</i><br>",
+                        "Corona cases: github.com/iceweasel1/COVID-19-Germany <br>",
+                        "District boundaries: © GeoBasis-DE / BKG (2020) <br>",
+                        "District population: Statistisches Bundesamt")) +
+  cowplot::theme_map() +
+  theme(plot.title = ggtext::element_markdown(color = "white", margin = unit(c(0, 0, 0.3, 0), "in"),
+                                              hjust = 0),
+        plot.subtitle = ggtext::element_markdown(color = "white", lineheight = 1.5),
+        plot.caption = ggtext::element_markdown(color = "darkgrey", hjust = 0),
+        plot.background = element_rect(fill = "#000f26"),
+        plot.margin = unit(c(0.3, 0.2, 0.1, 0.2), "in"))
+
+cowplot::save_plot("output/5000_healthy_10_infected_colorblind.png", ggplot2::last_plot(),
+                   base_height = 12.75, base_width = 8)
+```
+
+
+
