@@ -9,3 +9,7 @@ I took the same approach for the Corona map, I **exaggerate** the number of Coro
 One caveat on the precision of the data. The corona cases and population density are available on a district level. Then I randomly place the dots within the corresponding district.
 
 ![Corona Density Map](https://github.com/const-ae/CoronaDensity/blob/master/output/5000_healthy_10_infected.png)
+
+And there is also a version that is save for people with colorblindness:
+
+![Corona Density Map](https://github.com/const-ae/CoronaDensity/blob/master/output/5000_healthy_10_infected_colorblind.png)
